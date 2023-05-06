@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+
+<body>
+    <div class="container">
+        <form action="" onsubmit="sendEmail(), reset(); return false;">
+            <h3>GET IN TOUCH</h3>
+            <input type="text" name="name" id="name" placeholder="Your Name " required>
+            <input type="email" name="gmail" id="email" placeholder="Email Id" required>
+            <input type="text" name="phone" id="Phone" placeholder="Phone no." required>
+            <textarea name="" id="message" rows="10" placeholder="How Can we Help you?"></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail() {
+            Email.send({
+                secureToken: "b3fba1a4-00c5-4edc-a503-7bc7ae732216",
+                To: 'nitinsuthar2002@gmail.com',
+                From: "anuragsuthar2132@gmail.com",
+                Subject: "New Contact From Enquiry",
+                Body: "Name :" + document.getElementById("name").value
+                +"<br> Email : "+document.getElementById("email").value
+                +"<br> Phone no. : "+document.getElementById("Phone").value
+                +"<br> Message : "+document.getElementById("message").value
+            }).then(
+                message => alert('Message Send successfully')
+            );
+        }
+    </script>
+
+</body>
+
+</html>
